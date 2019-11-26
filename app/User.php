@@ -15,19 +15,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+    protected $appends = [
+        'full_name'
+    ];
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    public function getFullName()
-  	{
-  		return $this->first_name . ' ' . $this->last_name;
-  	}
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 
     public function posts()
     {
-      return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post');
     }
 
     public function friends()
