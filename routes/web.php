@@ -16,6 +16,7 @@ Route::get('/delete-post/{$id}', 'PostController@destroy')->name('post.delete');
 
 Route::resource('/profile', 'UserController');
 Route::get('/addfriend', 'UserController@getAddFriend')->name('add.friend');
+Route::get('/remove-friend', 'UserController@removeFriend')->name('remove.friend');
 Route::get('/userimage/{filename}', 'UserController@userImage')->name('profile.image');
 
 Route::get('/', function () {
